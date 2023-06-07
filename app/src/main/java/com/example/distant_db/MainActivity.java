@@ -32,7 +32,10 @@ public class MainActivity extends AppCompatActivity {
         adapter = new MyAdapter(contactsList);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
         recyclerView.setAdapter(adapter);
-        contactsAPI = RetrofitClient.getClient("http://localhost/").create(ContactsAPI.class);
+        contactsAPI = RetrofitClient.getClient("http://10.0.2.2:80/saif/").create(ContactsAPI.class);
+
+
+
         // Appeler la méthode pour récupérer les contacts
         fetchContacts();
 
@@ -40,6 +43,10 @@ public class MainActivity extends AppCompatActivity {
 
     private void fetchContacts() {
         Call<List<Contact>> call = contactsAPI.getContacts();
+        System.out.println("*************************************************************");
+        System.out.println("contacts retrieved : "+call.request().body());
+        System.out.println("*************************************************************");
+
         call.enqueue(new Callback<List<Contact>>() {
             @Override
             public void onResponse(Call<List<Contact>> call, Response<List<Contact>> response) {

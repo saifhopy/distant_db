@@ -5,7 +5,6 @@ public class Contact {
     private String Nom;
     private String Prenom;
     private String Email;
-    private String phone;
 
 
     // Getter et Setter
@@ -43,11 +42,5 @@ public class Contact {
         Email = email;
     }
 
-    public String getPhone() {
-        return phone;
-    }
 
-    public void setPhone(String phone) {
-        this.phone = phone;
-    }
 }
